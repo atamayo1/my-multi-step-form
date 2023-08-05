@@ -1,0 +1,32 @@
+{
+  "steps": [
+    {
+      "id": 1,
+      "position": 1,
+      "secondaryTitle": "step 1",
+      "primaryTitle": "your info",
+      "route": "/"
+    },
+    {
+      "id": 2,
+      "position": 2,
+      "secondaryTitle": "step 2",
+      "primaryTitle": "select plan",
+      "route": "/select-plan"
+    },
+    {
+      "id": 3,
+      "position": 3,
+      "secondaryTitle": "step 3",
+      "primaryTitle": "add-ons",
+      "route": "/add-ons"
+    },
+    {
+      "id": 4,
+      "position": 4,
+      "secondaryTitle": "step 4",
+      "primaryTitle": "summary",
+      "route": "/summary"
+    }
+  ]
+}
