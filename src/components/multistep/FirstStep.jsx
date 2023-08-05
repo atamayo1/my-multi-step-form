@@ -34,7 +34,7 @@ const FirstStep = () => {
       setErrors(validationErrors);
     } else {
       if (form.name && form.email && form.phone) {
-        navigate("/select-plan");
+        navigate({pathname:"/select-plan", state: form});
       }
       console.log("new data", form);
     }
