@@ -10,7 +10,6 @@ import { styled } from "@mui/material/styles";
 import BackgroundAside from "../../../assets/svg/background-aside.svg";
 import { useState } from "react";
 import steps from "../../../assets/mocks/steps.json";
-// import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const drawerWidth = 274;

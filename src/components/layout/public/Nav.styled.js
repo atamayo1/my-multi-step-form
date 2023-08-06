@@ -7,10 +7,6 @@ export const StepItem = styled.div`
   align-items: center;
   margin-top: 2em;
   height: 3.7em;
-/*   &:hover{
-    background-color: rgba(0,0,0,0.5);
-    cursor: pointer;
-  } */
 `;
 
 export const ContentItemNumber = styled.div`
