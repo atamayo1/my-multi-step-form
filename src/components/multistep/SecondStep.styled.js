@@ -13,6 +13,11 @@ export const ContentMultiStep = styled.div`
     text-transform: capitalize;
     color: #9699aa;
   }
+  .css-i4bv87-MuiSvgIcon-root {
+    width: 20px;
+    height: auto;
+    display: flex;
+  }
 `;
 
 export const PrincipalTitle = styled.h2`

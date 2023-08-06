@@ -34,11 +34,12 @@ const FirstStep = () => {
       setErrors(validationErrors);
     } else {
       if (form.name && form.email && form.phone) {
-        navigate("/select-plan");
+        localStorage.setItem("first-step", JSON.stringify(form))
+        navigate("/select-plan", {state: {...form}});
       }
-      console.log("new data", form);
     }
   };
+
   return (
     <ContentMultiStep>
       <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
