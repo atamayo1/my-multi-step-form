@@ -68,6 +68,7 @@ const SecondStep = () => {
                 id={card.id}
                 title={card.title}
                 price={card.price}
+                checkMonthlyOrYearly={checkMonthlyOrYearly}
                 cardSelection={cardSelection}
                 setCardSelection={setCardSelection}
               />
