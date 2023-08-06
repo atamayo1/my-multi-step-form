@@ -42,7 +42,7 @@ const CardCheckbox = ({
           }`}
           sx={{
             minWidth: 295,
-            maxHeight: 77,
+            maxHeight: !checkMonthlyOrYearly ? 77 : 100,
             borderRadius: 3,
             display: "flex",
             justifyContent: "baseline",
