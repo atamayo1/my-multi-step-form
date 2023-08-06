@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const ContentCard = styled.div`
   .card.selected {
     border: 1px solid #483eff;
+    background-color: rgba(72, 62, 255, 0.1);
   }
   .card {
     border: 1px solid #d6d9e6;
@@ -11,6 +12,7 @@ export const ContentCard = styled.div`
   .card:hover {
     border: 1px solid #483eff;
     cursor: pointer;
+    background-color: rgba(72, 62, 255, 0.1);
   }
 `;
 
