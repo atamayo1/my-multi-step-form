@@ -32,7 +32,7 @@ const CardCheckbox = ({
         key={id}
         onClick={() => handleCardClick({ id, title, price })}
         className={`card ${
-          isSelected && cardSelection.title.toLowerCase() == title.toLowerCase()
+          isSelected && cardSelection?.title?.toLowerCase() == title.toLowerCase()
             ? "selected"
             : ""
         }`}

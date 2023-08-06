@@ -1,5 +1,6 @@
 import Container from "@mui/material/Container";
 import {
+  ContentCheckbox,
   ContentMultiStep,
   DescriptionText,
   PrincipalTitle,
@@ -22,6 +23,7 @@ import { useForm } from "../../hooks/useForm";
 const ThirdStep = () => {
   const navigate = useNavigate();
   const { form, changed } = useForm({});
+  const [secondData, setSecondData] = useState({});
   const [principalTitle] = useState("Pick add-ons");
   const [descriptionText] = useState(
     "Add-ons help enhance your gaming experience."
@@ -31,15 +33,27 @@ const ThirdStep = () => {
   };
   const handleNextStep = async (e) => {
     e.preventDefault();
-    console.log("form", form);
-    if (form) {
-      localStorage.setItem("third-step", JSON.stringify(form));
-      navigate("/summary", { state: { ...form } });
+    let newData = {
+      ...form,
+      onlineservicePrice:
+        form?.onlineservice &&
+        Number(`${secondData.monthly ? 1 : ""}${secondData.yearly ? 10 : ""}`),
+      largestoragePrice:
+        form?.largestorage &&
+        Number(`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`),
+      customizableprofilePrice:
+        form?.customizableprofile &&
+        Number(`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`),
+    };
+    if (newData) {
+      localStorage.setItem("third-step", JSON.stringify(newData));
+      navigate("/summary", { state: { ...newData } });
     }
   };
   useEffect(() => {
-    console.log("first-step", JSON.parse(localStorage.getItem("first-step")));
-    console.log("second-step", JSON.parse(localStorage.getItem("second-step")));
+    if (localStorage.getItem("second-step")) {
+      setSecondData({ ...JSON.parse(localStorage.getItem("second-step")) });
+    }
   }, []);
 
   return (
@@ -54,7 +68,11 @@ const ThirdStep = () => {
         >
           <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
           <DescriptionText className="w-75">{descriptionText}</DescriptionText>
-          <div className="w-75 d-flex justify-content-between align-items-baseline">
+          <ContentCheckbox
+            className={`w-75 d-flex justify-content-between align-items-baseline ${
+              form?.onlineservice && "selected"
+            }`}
+          >
             <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
               <FormGroup>
                 <FormControlLabel
@@ -72,10 +90,18 @@ const ThirdStep = () => {
                 </FormLabel>
               </FormGroup>
             </FormControl>
-            <FormLabel>+10/yr</FormLabel>
-          </div>
+            <FormLabel>
+              +{`${secondData.monthly ? 1 : ""}${secondData.yearly ? 10 : ""}`}
+              {secondData.monthly ? "/mo" : ""}
+              {secondData.yearly ? "/yr" : ""}
+            </FormLabel>
+          </ContentCheckbox>
 
-          <div className="w-75 d-flex justify-content-between align-items-baseline">
+          <ContentCheckbox
+            className={`w-75 d-flex justify-content-between align-items-baseline ${
+              form?.largestorage && "selected"
+            }`}
+          >
             <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
               <FormGroup>
                 <FormControlLabel
@@ -93,10 +119,18 @@ const ThirdStep = () => {
                 </FormLabel>
               </FormGroup>
             </FormControl>
-            <FormLabel>+20/yr</FormLabel>
-          </div>
+            <FormLabel>
+              +{`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`}
+              {secondData.monthly ? "/mo" : ""}
+              {secondData.yearly ? "/yr" : ""}
+            </FormLabel>
+          </ContentCheckbox>
 
-          <div className="w-75 d-flex justify-content-between align-items-baseline">
+          <ContentCheckbox
+            className={`w-75 d-flex justify-content-between align-items-baseline ${
+              form?.customizableprofile && "selected"
+            }`}
+          >
             <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
               <FormGroup>
                 <FormControlLabel
@@ -114,8 +148,12 @@ const ThirdStep = () => {
                 </FormLabel>
               </FormGroup>
             </FormControl>
-            <FormLabel>+20/yr</FormLabel>
-          </div>
+            <FormLabel>
+              +{`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`}
+              {secondData.monthly ? "/mo" : ""}
+              {secondData.yearly ? "/yr" : ""}
+            </FormLabel>
+          </ContentCheckbox>
           <Stack
             spacing={2}
             direction="row"

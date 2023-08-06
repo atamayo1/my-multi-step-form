@@ -8,7 +8,6 @@ import { Box, Button, Stack, Switch } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardCheckbox from "../cardcheckbox/CardCheckbox";
-import { useEffect } from "react";
 
 const SecondStep = () => {
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ const SecondStep = () => {
     "You have the option of monthly or yearly billing."
   );
   const [checkMonthlyOrYearly, setCheckMonthlyOrYearly] = useState(false);
-  const [cardSelection, setCardSelection] = useState();
+  const [cardSelection, setCardSelection] = useState({});
   const cardData = [
     { id: 1, title: "Arcade", price: !checkMonthlyOrYearly ? 9 : 90 },
     { id: 2, title: "Advanced", price: !checkMonthlyOrYearly ? 12 : 120 },
@@ -25,7 +24,7 @@ const SecondStep = () => {
     // Add more card data as needed
   ];
   const handleGoBack = () => {
-    navigate("/", { state:  {...localStorage.getItem("first-step"), ...localStorage.getItem("second-step")}});
+    navigate("/");
   };
   const handleNextStep = async () => {
     let newData = {
@@ -34,20 +33,14 @@ const SecondStep = () => {
       cardSelection: cardSelection ? cardSelection : false,
     };
     if (newData) {
-      localStorage.setItem("second-step", JSON.stringify(newData))
+      localStorage.setItem("second-step", JSON.stringify(newData));
       navigate("/add-ons", { state: { ...newData } });
     }
   };
   const handleMonthlyOrYearly = async () => {
+    setCardSelection({})
     setCheckMonthlyOrYearly(!checkMonthlyOrYearly);
   };
-
-  useEffect(() => {
-    if(localStorage.getItem("second-step")) {
-      let lastData = JSON.parse(localStorage.getItem("second-step"));
-      console.log("lastData", lastData)
-    }
-  }, [])
 
   return (
     <ContentMultiStep>

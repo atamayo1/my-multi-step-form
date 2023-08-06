@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 const FourthStep = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({});
+  const [total, setTotal] = useState();
   const [principalTitle] = useState("Finishing up");
   const [descriptionText] = useState(
     "Double-check everything looks OK before confirming."
@@ -38,6 +39,26 @@ const FourthStep = () => {
       setData({ ...firstStep, ...secondStep, ...thirdStep });
     }
   }, []);
+  useEffect(() => {
+    if (data) {
+      let cardSelectionPrice = data?.cardSelection?.price;
+      let onlineservicePrice = data?.onlineservicePrice;
+      let largestoragePrice = data?.largestoragePrice;
+      let customizableprofilePrice = data?.customizableprofilePrice;
+      setTotal(
+        `${
+          Number(cardSelectionPrice != undefined ? cardSelectionPrice : "") +
+          Number(onlineservicePrice != undefined ? onlineservicePrice : "") +
+          Number(largestoragePrice != undefined ? largestoragePrice : "") +
+          Number(
+            customizableprofilePrice != undefined
+              ? customizableprofilePrice
+              : ""
+          )
+        }`
+      );
+    }
+  }, [data]);
   return (
     <ContentMultiStep>
       <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
@@ -102,16 +123,56 @@ const FourthStep = () => {
               </div>
 
               <hr />
+              {data?.onlineservice && (
+                <div className="d-flex justify-content-between align-items-baseline">
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    {"Online Service"}
+                  </Typography>
+                  <Typography
+                    sx={{ mb: 1.5 }}
+                    color="text.secondary"
+                    component="div"
+                  >
+                    +${data?.onlineservicePrice}
+                    {data?.monthly && "/mo"}
+                    {data?.yearly && "/yr"}
+                  </Typography>
+                </div>
+              )}
 
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                {data?.onlineservice && "Online Service"}
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                {data?.largestorage && "Large Storage"}
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                {data?.customizableprofile && "Customizable Profile"}
-              </Typography>
+              {data?.largestorage && (
+                <div className="d-flex justify-content-between align-items-baseline">
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    {"Large Storage"}
+                  </Typography>
+                  <Typography
+                    sx={{ mb: 1.5 }}
+                    color="text.secondary"
+                    component="div"
+                  >
+                    +${data?.largestoragePrice}
+                    {data?.monthly && "/mo"}
+                    {data?.yearly && "/yr"}
+                  </Typography>
+                </div>
+              )}
+
+              {data?.customizableprofile && (
+                <div className="d-flex justify-content-between align-items-baseline">
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    {"Customizable Profile"}
+                  </Typography>
+                  <Typography
+                    sx={{ mb: 1.5 }}
+                    color="text.secondary"
+                    component="div"
+                  >
+                    +${data?.onlineservicePrice}
+                    {data?.monthly && "/mo"}
+                    {data?.yearly && "/yr"}
+                  </Typography>
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -129,12 +190,7 @@ const FourthStep = () => {
             </Typography>
 
             <Typography sx={{ mb: 1.5 }} color="text.primary" component="div">
-              ${data?.cardSelection?.title.toLowerCase() == "arcade" &&
-                data?.cardSelection?.price}
-              {data?.cardSelection?.title.toLowerCase() == "advanced" &&
-                data?.cardSelection?.price}
-              {data?.cardSelection?.title.toLowerCase() == "pro" &&
-                data?.cardSelection?.price}
+              ${total}
               {data?.monthly && "/mo"}
               {data?.yearly && "/yr"}
             </Typography>

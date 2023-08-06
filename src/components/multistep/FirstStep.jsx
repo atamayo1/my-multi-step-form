@@ -29,13 +29,12 @@ const FirstStep = () => {
     if (!form.phone) {
       validationErrors.phone = "This field is required";
     }
-    console.log("validationErrors", validationErrors)
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
       if (form.name && form.email && form.phone) {
-        localStorage.setItem("first-step", JSON.stringify(form))
-        navigate("/select-plan", {state: {...form}});
+        localStorage.setItem("first-step", JSON.stringify(form));
+        navigate("/select-plan");
       }
     }
   };
