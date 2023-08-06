@@ -8,6 +8,7 @@ import { Box, Button, Stack, TextField } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const FirstStep = () => {
   const navigate = useNavigate();
@@ -38,6 +39,10 @@ const FirstStep = () => {
       }
     }
   };
+
+  useEffect(() => {
+    localStorage.clear();
+  }, [])
 
   return (
     <ContentMultiStep>

@@ -47,7 +47,7 @@ const ThirdStep = () => {
     };
     if (newData) {
       localStorage.setItem("third-step", JSON.stringify(newData));
-      navigate("/summary", { state: { ...newData } });
+      navigate("/summary");
     }
   };
   useEffect(() => {
@@ -92,7 +92,7 @@ const ThirdStep = () => {
               </FormGroup>
             </FormControl>
             <FormLabel>
-              +{`${secondData.monthly ? 1 : ""}${secondData.yearly ? 10 : ""}`}
+              +${`${secondData.monthly ? 1 : ""}${secondData.yearly ? 10 : ""}`}
               {secondData.monthly ? "/mo" : ""}
               {secondData.yearly ? "/yr" : ""}
             </FormLabel>
@@ -121,7 +121,7 @@ const ThirdStep = () => {
               </FormGroup>
             </FormControl>
             <FormLabel>
-              +{`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`}
+              +${`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`}
               {secondData.monthly ? "/mo" : ""}
               {secondData.yearly ? "/yr" : ""}
             </FormLabel>
@@ -150,7 +150,7 @@ const ThirdStep = () => {
               </FormGroup>
             </FormControl>
             <FormLabel>
-              +{`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`}
+              +${`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`}
               {secondData.monthly ? "/mo" : ""}
               {secondData.yearly ? "/yr" : ""}
             </FormLabel>

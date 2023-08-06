@@ -34,7 +34,7 @@ const SecondStep = () => {
     };
     if (newData) {
       localStorage.setItem("second-step", JSON.stringify(newData));
-      navigate("/add-ons", { state: { ...newData } });
+      navigate("/add-ons");
     }
   };
   const handleMonthlyOrYearly = async () => {
@@ -104,6 +104,7 @@ const SecondStep = () => {
             <Button
               variant="contained"
               className="btn-next-step"
+              disabled={cardSelection?.title ? false : true}
               onClick={() => handleNextStep()}
             >
               Next Step
