@@ -36,6 +36,7 @@ export const ContentCheckbox = styled.div`
   padding-right: 1em;
   border-radius: 8px;
   border: 1px solid #9699AA;
+  color: #9699AA;
   .css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
     color: #022959;
     font-weight: bold;
