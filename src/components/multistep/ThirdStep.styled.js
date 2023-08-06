@@ -22,6 +22,14 @@ export const ContentMultiStep = styled.div`
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
     color: #483eff;
   }
+  .form-card{
+    width: 95%;
+    border-radius: 10px;
+    padding: 2em;
+    margin-left: 0.7em;
+    margin-top: 2.5em;
+    margin-bottom: 7em;
+  }
 `;
 
 export const ContentCheckbox = styled.div`
@@ -51,13 +59,13 @@ export const ContentCheckbox = styled.div`
   }
 `;
 
-export const PrincipalTitle = styled.h2`
+export const PrincipalTitle = styled.p`
   color: black;
   font-weight: bold;
-  font-size: 37px;
+  font-size: 24px;
 `;
 
 export const DescriptionText = styled.p`
   color: #9699aa;
-  font-size: 25px;
+  font-size: 16px;
 `;

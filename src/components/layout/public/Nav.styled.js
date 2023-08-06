@@ -1,5 +1,14 @@
 import { styled } from "styled-components";
 
+export const ContentNav = styled.div`
+  .toolbar-top-menu {
+    background-position: bottom;
+    background-size: cover;
+  }
+`;
+
+export const StepTopItem = styled.div``;
+
 export const StepItem = styled.div`
   display: flex;
   flex-direction: row;
@@ -23,8 +32,7 @@ export const ContentItemNumber = styled.div`
   background-color: ${({ selected }) => (selected ? "#BEE2FD" : "")};
 `;
 
-export const ContentItemTitle = styled.div`
-`;
+export const ContentItemTitle = styled.div``;
 
 export const SecondaryTitle = styled.div`
   color: #abbcff;

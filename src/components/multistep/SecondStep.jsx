@@ -4,12 +4,14 @@ import {
   DescriptionText,
   PrincipalTitle,
 } from "./SecondStep.styled";
-import { Box, Button, Stack, Switch } from "@mui/material";
+import { Box, Button, Card, Stack, Switch } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardCheckbox from "../cardcheckbox/CardCheckbox";
+import { useMediaQuery } from "@material-ui/core";
 
 const SecondStep = () => {
+  const isSmallScreen = useMediaQuery("(max-width: 600px)");
   const navigate = useNavigate();
   const [principalTitle] = useState("Select your plan");
   const [descriptionText] = useState(
@@ -38,61 +40,65 @@ const SecondStep = () => {
     }
   };
   const handleMonthlyOrYearly = async () => {
-    setCardSelection({})
+    setCardSelection({});
     setCheckMonthlyOrYearly(!checkMonthlyOrYearly);
   };
 
   return (
     <ContentMultiStep>
-      <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 1, width: "25ch" },
-          }}
-        >
-          <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
-          <DescriptionText className="w-75">{descriptionText}</DescriptionText>
+      {isSmallScreen ? (
+        <Box component="form">
+          <Card className="form-card">
+            <PrincipalTitle>{principalTitle}</PrincipalTitle>
+            <DescriptionText>{descriptionText}</DescriptionText>
 
-          <div className="d-flex justify-content-around w-50 mt-5">
-            {cardData.map((card) => (
-              <CardCheckbox
-                key={card.id}
-                id={card.id}
-                title={card.title}
-                price={card.price}
-                checkMonthlyOrYearly={checkMonthlyOrYearly}
-                cardSelection={cardSelection}
-                setCardSelection={setCardSelection}
+            <div className="w-100 h-25 mt-5">
+              {cardData.map((card) => (
+                <CardCheckbox
+                  key={card.id}
+                  id={card.id}
+                  title={card.title}
+                  price={card.price}
+                  checkMonthlyOrYearly={checkMonthlyOrYearly}
+                  cardSelection={cardSelection}
+                  setCardSelection={setCardSelection}
+                />
+              ))}
+            </div>
+
+            <div
+              style={{ fontWeight: "bold" }}
+              className="d-flex align-items-baseline justify-content-center w-100 mt-5"
+            >
+              <span
+                style={{
+                  fontSize: "14px",
+                  color: checkMonthlyOrYearly ? "#9699AA" : "#022959",
+                }}
+              >
+                Monthly
+              </span>
+              <Switch
+                defaultChecked={false}
+                color="default"
+                onChange={() => handleMonthlyOrYearly()}
               />
-            ))}
-          </div>
-
-          <div
-            style={{ fontWeight: "bold" }}
-            className="d-flex align-items-baseline justify-content-center w-50 mt-5"
-          >
-            <span
-              style={{ fontSize: "14px", color: checkMonthlyOrYearly ? "#9699AA" : "#022959" }}
-            >
-              Monthly
-            </span>
-            <Switch
-              defaultChecked={false}
-              color="default"
-              onChange={() => handleMonthlyOrYearly()}
-            />
-            <span
-              style={{ fontSize: "14px", color: checkMonthlyOrYearly ? "#022959" : "#9699AA" }}
-            >
-              Yearly
-            </span>
-          </div>
+              <span
+                style={{
+                  fontSize: "14px",
+                  color: checkMonthlyOrYearly ? "#022959" : "#9699AA",
+                }}
+              >
+                Yearly
+              </span>
+            </div>
+          </Card>
 
           <Stack
             spacing={2}
             direction="row"
-            className="d-flex justify-content-between w-75 mt-5"
+            style={{ paddingInline: "1em", position: "fixed", bottom: "0" }}
+            className="d-flex justify-content-between mt-5 py-4 w-100 bg-white"
           >
             <Button
               variant="text"
@@ -111,7 +117,84 @@ const SecondStep = () => {
             </Button>
           </Stack>
         </Box>
-      </Container>
+      ) : (
+        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
+          <Box
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 1, width: "25ch" },
+            }}
+          >
+            <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
+            <DescriptionText className="w-75">
+              {descriptionText}
+            </DescriptionText>
+
+            <div className="d-flex justify-content-around w-50 mt-5">
+              {cardData.map((card) => (
+                <CardCheckbox
+                  key={card.id}
+                  id={card.id}
+                  title={card.title}
+                  price={card.price}
+                  checkMonthlyOrYearly={checkMonthlyOrYearly}
+                  cardSelection={cardSelection}
+                  setCardSelection={setCardSelection}
+                />
+              ))}
+            </div>
+
+            <div
+              style={{ fontWeight: "bold" }}
+              className="d-flex align-items-baseline justify-content-center w-50 mt-5"
+            >
+              <span
+                style={{
+                  fontSize: "14px",
+                  color: checkMonthlyOrYearly ? "#9699AA" : "#022959",
+                }}
+              >
+                Monthly
+              </span>
+              <Switch
+                defaultChecked={false}
+                color="default"
+                onChange={() => handleMonthlyOrYearly()}
+              />
+              <span
+                style={{
+                  fontSize: "14px",
+                  color: checkMonthlyOrYearly ? "#022959" : "#9699AA",
+                }}
+              >
+                Yearly
+              </span>
+            </div>
+
+            <Stack
+              spacing={2}
+              direction="row"
+              className="d-flex justify-content-between w-75 mt-5"
+            >
+              <Button
+                variant="text"
+                className="btn-back-step"
+                onClick={() => handleGoBack()}
+              >
+                Go Back
+              </Button>
+              <Button
+                variant="contained"
+                className="btn-next-step"
+                disabled={cardSelection?.title ? false : true}
+                onClick={() => handleNextStep()}
+              >
+                Next Step
+              </Button>
+            </Stack>
+          </Box>
+        </Container>
+      )}
     </ContentMultiStep>
   );
 };
