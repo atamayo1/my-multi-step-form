@@ -32,7 +32,8 @@ const CardCheckbox = ({
         key={id}
         onClick={() => handleCardClick({ id, title, price })}
         className={`card ${
-          isSelected && cardSelection?.title?.toLowerCase() == title.toLowerCase()
+          isSelected &&
+          cardSelection?.title?.toLowerCase() == title.toLowerCase()
             ? "selected"
             : ""
         }`}
@@ -62,9 +63,15 @@ const CardCheckbox = ({
           >
             {title}
           </Typography>
-          <Typography sx={{ mb: 1.5, fontSize: "14px" }} color="text.secondary">
-            ${price}{!checkMonthlyOrYearly ? "/mo" : "/yr"}
+          <Typography sx={{ fontSize: "14px" }} color="text.secondary">
+            ${price}
+            {!checkMonthlyOrYearly ? "/mo" : "/yr"}
           </Typography>
+          {checkMonthlyOrYearly && (
+            <Typography sx={{ mb: 1.5, fontSize: "14px", color: "#022959" }}>
+              2 months free
+            </Typography>
+          )}
         </CardContent>
       </Card>
     </ContentCard>
