@@ -12,7 +12,7 @@ import { useState } from "react";
 import steps from "../../../assets/mocks/steps.json";
 import { useLocation } from "react-router-dom";
 
-const drawerWidth = 274;
+const drawerWidth = "314px";
 
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",

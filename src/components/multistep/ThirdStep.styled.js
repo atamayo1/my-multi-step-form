@@ -12,6 +12,7 @@ export const ContentMultiStep = styled.div`
   .btn-back-step {
     text-transform: capitalize;
     color: #9699aa;
+    font-size: 18px;
   }
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
@@ -49,8 +50,10 @@ export const ContentCheckbox = styled.div`
 export const PrincipalTitle = styled.h2`
   color: black;
   font-weight: bold;
+  font-size: 37px;
 `;
 
 export const DescriptionText = styled.p`
   color: #9699aa;
+  font-size: 25px;
 `;

@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
 export const ContentMultiStep = styled.div`
+  font-family: 'Ubuntu', sans-serif;
   .btn-next-step {
     text-transform: capitalize;
     font-size: 18px;
@@ -12,6 +13,7 @@ export const ContentMultiStep = styled.div`
   .btn-back-step {
     text-transform: capitalize;
     color: #9699aa;
+    font-size: 18px;
   }
   .css-i4bv87-MuiSvgIcon-root {
     width: 20px;
@@ -23,8 +25,10 @@ export const ContentMultiStep = styled.div`
 export const PrincipalTitle = styled.h2`
   color: black;
   font-weight: bold;
+  font-size: 37px;
 `;
 
 export const DescriptionText = styled.p`
   color: #9699aa;
+  font-size: 25px;
 `;

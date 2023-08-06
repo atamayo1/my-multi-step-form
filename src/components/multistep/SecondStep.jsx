@@ -73,7 +73,7 @@ const SecondStep = () => {
             className="d-flex align-items-baseline justify-content-center w-50 mt-5"
           >
             <span
-              style={{ color: checkMonthlyOrYearly ? "#9699AA" : "#022959" }}
+              style={{ fontSize: "14px", color: checkMonthlyOrYearly ? "#9699AA" : "#022959" }}
             >
               Monthly
             </span>
@@ -83,7 +83,7 @@ const SecondStep = () => {
               onChange={() => handleMonthlyOrYearly()}
             />
             <span
-              style={{ color: checkMonthlyOrYearly ? "#022959" : "#9699AA" }}
+              style={{ fontSize: "14px", color: checkMonthlyOrYearly ? "#022959" : "#9699AA" }}
             >
               Yearly
             </span>

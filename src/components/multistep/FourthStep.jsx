@@ -70,7 +70,7 @@ const FourthStep = () => {
         >
           <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
           <DescriptionText className="w-75">{descriptionText}</DescriptionText>
-
+          <br />
           <Card
             sx={{
               minWidth: "75%",
@@ -96,18 +96,14 @@ const FourthStep = () => {
               </Typography>
 
               <div className="d-flex justify-content-between align-items-baseline">
-                <Link to="/select-plan">
-                  <Typography
-                    sx={{ mb: 1.5 }}
-                    color="text.secondary"
-                    component="div"
-                  >
+                <Link to="/select-plan" className="change-link">
+                  <Typography sx={{ mb: 1.5 }} component="div">
                     Change
                   </Typography>
                 </Link>
                 <Typography
                   sx={{ mb: 1.5 }}
-                  color="text.secondary"
+                  className="price-value"
                   component="div"
                 >
                   $
@@ -129,7 +125,7 @@ const FourthStep = () => {
                     {"Online Service"}
                   </Typography>
                   <Typography
-                    sx={{ mb: 1.5 }}
+                    sx={{ mb: 1.5, fontSize: "20px" }}
                     color="text.secondary"
                     component="div"
                   >
@@ -146,7 +142,7 @@ const FourthStep = () => {
                     {"Large Storage"}
                   </Typography>
                   <Typography
-                    sx={{ mb: 1.5 }}
+                    sx={{ mb: 1.5, fontSize: "20px" }}
                     color="text.secondary"
                     component="div"
                   >
@@ -163,11 +159,11 @@ const FourthStep = () => {
                     {"Customizable Profile"}
                   </Typography>
                   <Typography
-                    sx={{ mb: 1.5 }}
+                    sx={{ mb: 1.5, fontSize: "20px" }}
                     color="text.secondary"
                     component="div"
                   >
-                    +${data?.onlineservicePrice}
+                    +${data?.customizableprofilePrice}
                     {data?.monthly && "/mo"}
                     {data?.yearly && "/yr"}
                   </Typography>
@@ -175,7 +171,7 @@ const FourthStep = () => {
               )}
             </CardContent>
           </Card>
-
+          <br />
           <div
             className="d-flex justify-content-between align-items-baseline"
             style={{ width: "73%" }}
@@ -189,7 +185,7 @@ const FourthStep = () => {
               {data?.yearly && "year"})
             </Typography>
 
-            <Typography sx={{ mb: 1.5 }} color="text.primary" component="div">
+            <Typography sx={{ mb: 1.5, fontSize: "20px", color: "#483EFF", fontWeight: "bold" }} component="div">
               ${total}
               {data?.monthly && "/mo"}
               {data?.yearly && "/yr"}

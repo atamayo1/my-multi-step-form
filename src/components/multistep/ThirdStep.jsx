@@ -68,6 +68,7 @@ const ThirdStep = () => {
         >
           <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
           <DescriptionText className="w-75">{descriptionText}</DescriptionText>
+          <br />
           <ContentCheckbox
             className={`w-75 d-flex justify-content-between align-items-baseline ${
               form?.onlineservice && "selected"

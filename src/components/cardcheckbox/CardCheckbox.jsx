@@ -57,12 +57,12 @@ const CardCheckbox = ({
             )}
           </Typography>
           <Typography
-            style={{ fontWeight: "bold", fontSize: 18 }}
+            style={{ fontWeight: "bold", fontSize: "16px" }}
             component="div"
           >
             {title}
           </Typography>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          <Typography sx={{ mb: 1.5, fontSize: "14px" }} color="text.secondary">
             ${price}{!checkMonthlyOrYearly ? "/mo" : "/yr"}
           </Typography>
         </CardContent>
