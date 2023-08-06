@@ -4,13 +4,14 @@ import {
   DescriptionText,
   PrincipalTitle,
 } from "./FirstStep.styled";
-import { Box, Button, Stack, TextField } from "@mui/material";
-import { useState } from "react";
+import { Box, Button, Card, Stack, TextField } from "@mui/material";
+import { useState, useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useMediaQuery } from "@material-ui/core";
 
 const FirstStep = () => {
+  const isSmallScreen = useMediaQuery("(max-width: 600px)");
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const { form, changed } = useForm({});
@@ -42,66 +43,127 @@ const FirstStep = () => {
 
   useEffect(() => {
     localStorage.clear();
-  }, [])
+  }, []);
 
   return (
     <ContentMultiStep>
-      <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
-        <Box
-          onSubmit={handleNextStep}
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 1, width: "25ch" },
-          }}
-        >
-          <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
-          <DescriptionText className="w-75">{descriptionText}</DescriptionText>
-          <TextField
-            className="w-75"
-            id="outlined-basic-name"
-            label="Name"
-            name="name"
-            variant="outlined"
-            placeholder="e.g. Stephen King"
-            onChange={changed}
-            error={!!errors.name}
-            helperText={errors.name}
-          />
-          <TextField
-            className="w-75"
-            id="outlined-basic-email"
-            label="Email Address"
-            name="email"
-            variant="outlined"
-            type={"email"}
-            placeholder="e.g. stephenking@lorem.com"
-            onChange={changed}
-            error={!!errors.email}
-            helperText={errors.email}
-          />
-          <TextField
-            className="w-75"
-            id="outlined-basic-phone"
-            label="Phone Number"
-            name="phone"
-            variant="outlined"
-            type={"number"}
-            placeholder="e.g. +1 234 567 890"
-            onChange={changed}
-            error={!!errors.phone}
-            helperText={errors.phone}
-          />
+      {isSmallScreen ? (
+        <Box onSubmit={handleNextStep} component="form">
+          <Card className="form-card">
+            <PrincipalTitle>{principalTitle}</PrincipalTitle>
+            <DescriptionText>{descriptionText}</DescriptionText>
+            <TextField
+              className="w-100 mb-3"
+              id="outlined-basic-name"
+              label="Name"
+              name="name"
+              variant="outlined"
+              placeholder="e.g. Stephen King"
+              onChange={changed}
+              error={!!errors.name}
+              helperText={errors.name}
+            />
+            <TextField
+              className="w-100 mb-3"
+              id="outlined-basic-email"
+              label="Email Address"
+              name="email"
+              variant="outlined"
+              type={"email"}
+              placeholder="e.g. stephenking@lorem.com"
+              onChange={changed}
+              error={!!errors.email}
+              helperText={errors.email}
+            />
+            <TextField
+              className="w-100 mb-3"
+              id="outlined-basic-phone"
+              label="Phone Number"
+              name="phone"
+              variant="outlined"
+              type={"number"}
+              placeholder="e.g. +1 234 567 890"
+              onChange={changed}
+              error={!!errors.phone}
+              helperText={errors.phone}
+            />
+          </Card>
+
           <Stack
             spacing={2}
             direction="row"
-            className="d-flex justify-content-end w-75 mt-5"
+            style={{ paddingRight: "1em", position: "fixed", bottom: "0" }}
+            className="d-flex justify-content-end mt-5 py-4 w-100 bg-white"
           >
             <Button type="submit" variant="contained" className="btn-next-step">
               Next Step
             </Button>
           </Stack>
         </Box>
-      </Container>
+      ) : (
+        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
+          <Box
+            onSubmit={handleNextStep}
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 1, width: "25ch" },
+            }}
+          >
+            <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
+            <DescriptionText className="w-75">
+              {descriptionText}
+            </DescriptionText>
+            <TextField
+              className="w-75"
+              id="outlined-basic-name"
+              label="Name"
+              name="name"
+              variant="outlined"
+              placeholder="e.g. Stephen King"
+              onChange={changed}
+              error={!!errors.name}
+              helperText={errors.name}
+            />
+            <TextField
+              className="w-75"
+              id="outlined-basic-email"
+              label="Email Address"
+              name="email"
+              variant="outlined"
+              type={"email"}
+              placeholder="e.g. stephenking@lorem.com"
+              onChange={changed}
+              error={!!errors.email}
+              helperText={errors.email}
+            />
+            <TextField
+              className="w-75"
+              id="outlined-basic-phone"
+              label="Phone Number"
+              name="phone"
+              variant="outlined"
+              type={"number"}
+              placeholder="e.g. +1 234 567 890"
+              onChange={changed}
+              error={!!errors.phone}
+              helperText={errors.phone}
+            />
+            <Stack
+              spacing={2}
+              direction="row"
+              className="d-flex justify-content-end w-75 mt-5"
+            >
+              <Button
+                type="submit"
+                variant="contained"
+                className="btn-next-step"
+              >
+                Next Step
+              </Button>
+            </Stack>
+          </Box>
+        </Container>
+      )}
     </ContentMultiStep>
   );
 };

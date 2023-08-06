@@ -33,15 +33,23 @@ export const ContentMultiStep = styled.div`
     color: #022959;
     font-weight: bold;
   }
+  .form-card{
+    width: 95%;
+    border-radius: 10px;
+    padding: 2em;
+    margin-left: 0.7em;
+    margin-top: 2.5em;
+    margin-bottom: 7em;
+  }
 `;
 
 export const PrincipalTitle = styled.p`
   color: black;
-  font-size: 37px;
+  font-size: 24px;
   font-weight: bold;
 `;
 
 export const DescriptionText = styled.p`
   color: #9699aa;
-  font-size: 25px;
+  font-size: 16px;
 `;
