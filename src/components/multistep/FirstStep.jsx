@@ -62,6 +62,7 @@ const FirstStep = () => {
             label="Name"
             name="name"
             variant="outlined"
+            placeholder="e.g. Stephen King"
             onChange={changed}
             error={!!errors.name}
             helperText={errors.name}
@@ -73,6 +74,7 @@ const FirstStep = () => {
             name="email"
             variant="outlined"
             type={"email"}
+            placeholder="e.g. stephenking@lorem.com"
             onChange={changed}
             error={!!errors.email}
             helperText={errors.email}
@@ -84,6 +86,7 @@ const FirstStep = () => {
             name="phone"
             variant="outlined"
             type={"number"}
+            placeholder="e.g. +1 234 567 890"
             onChange={changed}
             error={!!errors.phone}
             helperText={errors.phone}
