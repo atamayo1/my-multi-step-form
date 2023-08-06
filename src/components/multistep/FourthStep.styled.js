@@ -22,10 +22,10 @@ export const ContentMultiStep = styled.div`
     color: #022959;
   }
   .change-link {
-    color: #483eff;
-    text-decoration: none;
+    color: #9699aa;
   }
   .change-link:hover {
+    color: #483eff;
     text-decoration: underline;
   }
   .price-value {
