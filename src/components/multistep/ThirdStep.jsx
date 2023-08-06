@@ -18,8 +18,8 @@ import {
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "../../hooks/useForm";
 import { useMediaQuery } from "@material-ui/core";
+import { useForm } from "../../hooks/useForm";
 
 const ThirdStep = () => {
   const isSmallScreen = useMediaQuery("(max-width: 600px)");
