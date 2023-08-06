@@ -14,6 +14,10 @@ export const ContentMultiStep = styled.div`
     color: #9699aa;
     font-size: 18px;
   }
+  .btn-back-step:hover {
+    color: #022959;
+    font-weight: bold;
+  }
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
   .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
     color: #483eff;
@@ -30,7 +34,7 @@ export const ContentCheckbox = styled.div`
   .css-u4tvz2-MuiFormLabel-root {
     color: #9699aa;
   }
-  .css-u4tvz2-MuiFormLabel-root.Mui-focused{
+  .css-u4tvz2-MuiFormLabel-root.Mui-focused {
     color: #9699aa !important;
   }
   label {

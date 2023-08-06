@@ -9,10 +9,17 @@ export const ContentMultiStep = styled.div`
     width: 123px;
     height: 48px;
   }
+  .btn-next-step:hover {
+    background-color: #928cff;
+  }
   .btn-back-step {
     text-transform: capitalize;
     color: #9699aa;
     font-size: 18px;
+  }
+  .btn-back-step:hover {
+    color: #022959;
+    font-weight: bold;
   }
   .change-link {
     color: #483eff;
