@@ -15,6 +15,7 @@ const CardCheckbox = ({
   id,
   title,
   price,
+  checkMonthlyOrYearly,
   cardSelection,
   setCardSelection,
 }) => {
@@ -62,7 +63,7 @@ const CardCheckbox = ({
             {title}
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            {price}
+            ${price}{!checkMonthlyOrYearly ? "/mo" : "/yr"}
           </Typography>
         </CardContent>
       </Card>
@@ -76,6 +77,7 @@ CardCheckbox.propTypes = {
   id: PropTypes.number,
   title: PropTypes.string,
   price: PropTypes.string,
+  checkMonthlyOrYearly: PropTypes.bool,
   cardSelection: PropTypes.object,
   setCardSelection: PropTypes.func,
 };

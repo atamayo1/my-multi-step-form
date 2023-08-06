@@ -19,9 +19,9 @@ const SecondStep = () => {
   const [checkMonthlyOrYearly, setCheckMonthlyOrYearly] = useState(false);
   const [cardSelection, setCardSelection] = useState();
   const cardData = [
-    { id: 1, title: "Arcade", price: "$9/mo" },
-    { id: 2, title: "Advanced", price: "$12/mo" },
-    { id: 3, title: "Pro", price: "$15/mo" },
+    { id: 1, title: "Arcade", price: !checkMonthlyOrYearly ? 9 : 90 },
+    { id: 2, title: "Advanced", price: !checkMonthlyOrYearly ? 12 : 120 },
+    { id: 3, title: "Pro", price: !checkMonthlyOrYearly ? 15 : 150 },
     // Add more card data as needed
   ];
   const handleGoBack = () => {

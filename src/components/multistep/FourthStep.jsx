@@ -89,12 +89,15 @@ const FourthStep = () => {
                   color="text.secondary"
                   component="div"
                 >
+                  $
                   {data?.cardSelection?.title.toLowerCase() == "arcade" &&
                     data?.cardSelection?.price}
                   {data?.cardSelection?.title.toLowerCase() == "advanced" &&
                     data?.cardSelection?.price}
                   {data?.cardSelection?.title.toLowerCase() == "pro" &&
                     data?.cardSelection?.price}
+                  {data?.monthly && "/mo"}
+                  {data?.yearly && "/yr"}
                 </Typography>
               </div>
 
@@ -116,18 +119,24 @@ const FourthStep = () => {
             className="d-flex justify-content-between align-items-baseline"
             style={{ width: "73%" }}
           >
-            <Typography sx={{ mb: 1.5, ml: 1.5 }} color="text.secondary" component="div">
+            <Typography
+              sx={{ mb: 1.5, ml: 1.5 }}
+              color="text.secondary"
+              component="div"
+            >
               Total (per {data?.monthly && "month"}
               {data?.yearly && "year"})
             </Typography>
 
             <Typography sx={{ mb: 1.5 }} color="text.primary" component="div">
-              {data?.cardSelection?.title.toLowerCase() == "arcade" &&
+              ${data?.cardSelection?.title.toLowerCase() == "arcade" &&
                 data?.cardSelection?.price}
               {data?.cardSelection?.title.toLowerCase() == "advanced" &&
                 data?.cardSelection?.price}
               {data?.cardSelection?.title.toLowerCase() == "pro" &&
                 data?.cardSelection?.price}
+              {data?.monthly && "/mo"}
+              {data?.yearly && "/yr"}
             </Typography>
           </div>
 
