@@ -68,7 +68,7 @@ const SecondStep = () => {
 
             <div
               style={{ fontWeight: "bold" }}
-              className="d-flex align-items-baseline justify-content-center w-100 mt-5"
+              className="d-flex align-items-baseline justify-content-center content-switch w-100 mt-5"
             >
               <span
                 style={{

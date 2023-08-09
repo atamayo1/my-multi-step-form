@@ -7,7 +7,7 @@ import {
 } from "./ThanksPage.styled";
 import { Box, Card } from "@mui/material";
 import { useState } from "react";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CheckCircleIconSvg from "../../assets/svg/icon-check-thanks-page.svg";
 import { useMediaQuery } from "@material-ui/core";
 
 const ThanksPage = () => {
@@ -19,13 +19,11 @@ const ThanksPage = () => {
   return (
     <ContentMultiStep>
       {isSmallScreen ? (
-        <Box
-          component="form"
-        >
+        <Box component="form">
           <Card className="form-card">
             <div className="mb-4">
-              <ContentIcon className="content-icon">
-                <CheckCircleIcon />
+              <ContentIcon isSmallScreen={isSmallScreen} >
+                <img src={CheckCircleIconSvg} alt="" />
               </ContentIcon>
             </div>
             <PrincipalTitle>{principalTitle}</PrincipalTitle>
@@ -37,6 +35,7 @@ const ThanksPage = () => {
       ) : (
         <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
           <Box
+            style={{ width: "450px" }}
             component="form"
             sx={{
               "& > :not(style)": {
@@ -47,8 +46,8 @@ const ThanksPage = () => {
             }}
           >
             <div className="w-75">
-              <ContentIcon className="content-icon">
-                <CheckCircleIcon />
+              <ContentIcon>
+                <img src={CheckCircleIconSvg} alt="" />
               </ContentIcon>
             </div>
             <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>

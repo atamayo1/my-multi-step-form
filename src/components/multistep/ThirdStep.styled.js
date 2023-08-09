@@ -112,7 +112,6 @@ export const ContentCheckbox = styled.div`
   }
   .label-price-checkbox{
     color: #483EFF;
-    font-size: 12px;
   }
   &.selected {
     border: 1px solid #483eff;

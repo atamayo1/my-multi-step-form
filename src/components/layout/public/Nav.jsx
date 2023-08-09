@@ -9,6 +9,7 @@ import {
 } from "./Nav.styled";
 import MuiDrawer from "@mui/material/Drawer";
 import { styled } from "@mui/material/styles";
+import BackgroundTopMenu from "../../../assets/svg/background-top-menu.svg";
 import BackgroundAside from "../../../assets/svg/background-aside.svg";
 import { useState } from "react";
 import steps from "../../../assets/mocks/steps.json";
@@ -60,7 +61,7 @@ const Nav = () => {
     <ContentNav>
       {isSmallScreen ? (
         // Content for small screens (width less than or equal to 600px)
-        <AppBar component="nav" className="app-bar-nav" style={{backgroundImage: `url(${BackgroundAside})`}}>
+        <AppBar component="nav" className="app-bar-nav" style={{backgroundImage: `url(${BackgroundTopMenu})`}}>
         <Toolbar>
           <Box  className="d-flex justify-content-around p-4 w-100">
           {listItems.map((item) => {

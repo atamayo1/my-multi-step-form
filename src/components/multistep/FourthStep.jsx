@@ -64,292 +64,145 @@ const FourthStep = () => {
   return (
     <ContentMultiStep>
       {isSmallScreen ? (
-        <Box
-        component="form"
-      >
-        <Card className="form-card">
-        <PrincipalTitle>{principalTitle}</PrincipalTitle>
-        <DescriptionText>{descriptionText}</DescriptionText>
-        <br />
-        <Card
-          sx={{
-            minWidth: "100%",
-            minHeight: 160,
-            mr: 2,
-            borderRadius: 3,
-            backgroundColor: "#F8F9FF",
-          }}
-        >
-          <CardContent>
-            <Typography
-              style={{ fontWeight: "bold", fontSize: 18 }}
-              sx={{ mb: 1.5 }}
-              component="div"
+        <Box component="form">
+          <Card className="form-card">
+            <PrincipalTitle>{principalTitle}</PrincipalTitle>
+            <DescriptionText>{descriptionText}</DescriptionText>
+            <br />
+            <Card
+              sx={{
+                minWidth: "100%",
+                minHeight: 160,
+                mr: 2,
+                borderRadius: 3,
+                backgroundColor: "#F8F9FF",
+              }}
             >
-              {data?.cardSelection?.title.toLowerCase() == "arcade" &&
-                "Arcade"}
-              {data?.cardSelection?.title.toLowerCase() == "advanced" &&
-                "Advanced"}
-              {data?.cardSelection?.title.toLowerCase() == "pro" && "Pro"}{" "}
-              {data?.monthly && "(Monthly)"}
-              {data?.yearly && "(Yearly)"}
-            </Typography>
-
-            <div className="d-flex justify-content-between align-items-baseline">
-              <Link to="/select-plan" className="change-link">
-                <Typography sx={{ mb: 1.5 }} component="div">
-                  Change
+              <CardContent>
+                <Typography
+                  style={{ fontWeight: "bold", fontSize: 18 }}
+                  sx={{ mb: 1.5 }}
+                  component="div"
+                >
+                  {data?.cardSelection?.title.toLowerCase() == "arcade" &&
+                    "Arcade"}
+                  {data?.cardSelection?.title.toLowerCase() == "advanced" &&
+                    "Advanced"}
+                  {data?.cardSelection?.title.toLowerCase() == "pro" && "Pro"}{" "}
+                  {data?.monthly && "(Monthly)"}
+                  {data?.yearly && "(Yearly)"}
                 </Typography>
-              </Link>
+
+                <div className="d-flex justify-content-between align-items-baseline">
+                  <Link to="/select-plan" className="change-link">
+                    <Typography sx={{ mb: 1.5 }} component="div">
+                      Change
+                    </Typography>
+                  </Link>
+                  <Typography
+                    sx={{ mb: 1.5 }}
+                    className="price-value"
+                    component="div"
+                  >
+                    $
+                    {data?.cardSelection?.title.toLowerCase() == "arcade" &&
+                      data?.cardSelection?.price}
+                    {data?.cardSelection?.title.toLowerCase() == "advanced" &&
+                      data?.cardSelection?.price}
+                    {data?.cardSelection?.title.toLowerCase() == "pro" &&
+                      data?.cardSelection?.price}
+                    {data?.monthly && "/mo"}
+                    {data?.yearly && "/yr"}
+                  </Typography>
+                </div>
+
+                <hr />
+                {data?.onlineservice && (
+                  <div className="d-flex justify-content-between align-items-baseline">
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                      {"Online Service"}
+                    </Typography>
+                    <Typography
+                      sx={{ mb: 1.5, fontSize: "20px" }}
+                      color="text.secondary"
+                      component="div"
+                    >
+                      +${data?.onlineservicePrice}
+                      {data?.monthly && "/mo"}
+                      {data?.yearly && "/yr"}
+                    </Typography>
+                  </div>
+                )}
+
+                {data?.largestorage && (
+                  <div className="d-flex justify-content-between align-items-baseline">
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                      {"Large Storage"}
+                    </Typography>
+                    <Typography
+                      sx={{ mb: 1.5, fontSize: "20px" }}
+                      color="text.secondary"
+                      component="div"
+                    >
+                      +${data?.largestoragePrice}
+                      {data?.monthly && "/mo"}
+                      {data?.yearly && "/yr"}
+                    </Typography>
+                  </div>
+                )}
+
+                {data?.customizableprofile && (
+                  <div className="d-flex justify-content-between align-items-baseline">
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                      {"Customizable Profile"}
+                    </Typography>
+                    <Typography
+                      sx={{ mb: 1.5, fontSize: "20px" }}
+                      color="text.secondary"
+                      component="div"
+                    >
+                      +${data?.customizableprofilePrice}
+                      {data?.monthly && "/mo"}
+                      {data?.yearly && "/yr"}
+                    </Typography>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+            <br />
+            <div
+              className="d-flex justify-content-between align-items-baseline"
+              style={{ width: "96%" }}
+            >
               <Typography
-                sx={{ mb: 1.5 }}
-                className="price-value"
+                sx={{ mb: 1.5, ml: 1.5 }}
+                color="text.secondary"
                 component="div"
               >
-                $
-                {data?.cardSelection?.title.toLowerCase() == "arcade" &&
-                  data?.cardSelection?.price}
-                {data?.cardSelection?.title.toLowerCase() == "advanced" &&
-                  data?.cardSelection?.price}
-                {data?.cardSelection?.title.toLowerCase() == "pro" &&
-                  data?.cardSelection?.price}
+                Total (per {data?.monthly && "month"}
+                {data?.yearly && "year"})
+              </Typography>
+
+              <Typography
+                sx={{
+                  mb: 1.5,
+                  fontSize: "20px",
+                  color: "#483EFF",
+                  fontWeight: "bold",
+                }}
+                component="div"
+              >
+                ${total}
                 {data?.monthly && "/mo"}
                 {data?.yearly && "/yr"}
               </Typography>
             </div>
-
-            <hr />
-            {data?.onlineservice && (
-              <div className="d-flex justify-content-between align-items-baseline">
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  {"Online Service"}
-                </Typography>
-                <Typography
-                  sx={{ mb: 1.5, fontSize: "20px" }}
-                  color="text.secondary"
-                  component="div"
-                >
-                  +${data?.onlineservicePrice}
-                  {data?.monthly && "/mo"}
-                  {data?.yearly && "/yr"}
-                </Typography>
-              </div>
-            )}
-
-            {data?.largestorage && (
-              <div className="d-flex justify-content-between align-items-baseline">
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  {"Large Storage"}
-                </Typography>
-                <Typography
-                  sx={{ mb: 1.5, fontSize: "20px" }}
-                  color="text.secondary"
-                  component="div"
-                >
-                  +${data?.largestoragePrice}
-                  {data?.monthly && "/mo"}
-                  {data?.yearly && "/yr"}
-                </Typography>
-              </div>
-            )}
-
-            {data?.customizableprofile && (
-              <div className="d-flex justify-content-between align-items-baseline">
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  {"Customizable Profile"}
-                </Typography>
-                <Typography
-                  sx={{ mb: 1.5, fontSize: "20px" }}
-                  color="text.secondary"
-                  component="div"
-                >
-                  +${data?.customizableprofilePrice}
-                  {data?.monthly && "/mo"}
-                  {data?.yearly && "/yr"}
-                </Typography>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-        <br />
-        <div
-          className="d-flex justify-content-between align-items-baseline"
-          style={{ width: "96%" }}
-        >
-          <Typography
-            sx={{ mb: 1.5, ml: 1.5 }}
-            color="text.secondary"
-            component="div"
-          >
-            Total (per {data?.monthly && "month"}
-            {data?.yearly && "year"})
-          </Typography>
-
-          <Typography sx={{ mb: 1.5, fontSize: "20px", color: "#483EFF", fontWeight: "bold" }} component="div">
-            ${total}
-            {data?.monthly && "/mo"}
-            {data?.yearly && "/yr"}
-          </Typography>
-        </div>
-        </Card>
-        <Stack
-          spacing={2}
-          direction="row"
-          style={{ paddingInline: "1em", position: "fixed", bottom: "0" }}
-          className="d-flex justify-content-between mt-5 py-4 w-100 bg-white"
-        >
-          <Button
-            variant="text"
-            className="btn-back-step"
-            onClick={() => handleGoBack()}
-          >
-            Go Back
-          </Button>
-          <Button
-            variant="contained"
-            className="btn-next-step"
-            onClick={() => handleNextStep()}
-          >
-            Confirm
-          </Button>
-        </Stack>
-      </Box>
-      ) : (
-        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 1, width: "25ch" },
-          }}
-        >
-          <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
-          <DescriptionText className="w-75">{descriptionText}</DescriptionText>
-          <br />
-          <Card
-            sx={{
-              minWidth: "75%",
-              minHeight: 160,
-              mr: 2,
-              borderRadius: 3,
-              backgroundColor: "#F8F9FF",
-            }}
-          >
-            <CardContent>
-              <Typography
-                style={{ fontWeight: "bold", fontSize: 18 }}
-                sx={{ mb: 1.5 }}
-                component="div"
-              >
-                {data?.cardSelection?.title.toLowerCase() == "arcade" &&
-                  "Arcade"}
-                {data?.cardSelection?.title.toLowerCase() == "advanced" &&
-                  "Advanced"}
-                {data?.cardSelection?.title.toLowerCase() == "pro" && "Pro"}{" "}
-                {data?.monthly && "(Monthly)"}
-                {data?.yearly && "(Yearly)"}
-              </Typography>
-
-              <div className="d-flex justify-content-between align-items-baseline">
-                <Link to="/select-plan" className="change-link">
-                  <Typography sx={{ mb: 1.5 }} component="div">
-                    Change
-                  </Typography>
-                </Link>
-                <Typography
-                  sx={{ mb: 1.5 }}
-                  className="price-value"
-                  component="div"
-                >
-                  $
-                  {data?.cardSelection?.title.toLowerCase() == "arcade" &&
-                    data?.cardSelection?.price}
-                  {data?.cardSelection?.title.toLowerCase() == "advanced" &&
-                    data?.cardSelection?.price}
-                  {data?.cardSelection?.title.toLowerCase() == "pro" &&
-                    data?.cardSelection?.price}
-                  {data?.monthly && "/mo"}
-                  {data?.yearly && "/yr"}
-                </Typography>
-              </div>
-
-              <hr />
-              {data?.onlineservice && (
-                <div className="d-flex justify-content-between align-items-baseline">
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    {"Online Service"}
-                  </Typography>
-                  <Typography
-                    sx={{ mb: 1.5, fontSize: "20px" }}
-                    color="text.secondary"
-                    component="div"
-                  >
-                    +${data?.onlineservicePrice}
-                    {data?.monthly && "/mo"}
-                    {data?.yearly && "/yr"}
-                  </Typography>
-                </div>
-              )}
-
-              {data?.largestorage && (
-                <div className="d-flex justify-content-between align-items-baseline">
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    {"Large Storage"}
-                  </Typography>
-                  <Typography
-                    sx={{ mb: 1.5, fontSize: "20px" }}
-                    color="text.secondary"
-                    component="div"
-                  >
-                    +${data?.largestoragePrice}
-                    {data?.monthly && "/mo"}
-                    {data?.yearly && "/yr"}
-                  </Typography>
-                </div>
-              )}
-
-              {data?.customizableprofile && (
-                <div className="d-flex justify-content-between align-items-baseline">
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    {"Customizable Profile"}
-                  </Typography>
-                  <Typography
-                    sx={{ mb: 1.5, fontSize: "20px" }}
-                    color="text.secondary"
-                    component="div"
-                  >
-                    +${data?.customizableprofilePrice}
-                    {data?.monthly && "/mo"}
-                    {data?.yearly && "/yr"}
-                  </Typography>
-                </div>
-              )}
-            </CardContent>
           </Card>
-          <br />
-          <div
-            className="d-flex justify-content-between align-items-baseline"
-            style={{ width: "73%" }}
-          >
-            <Typography
-              sx={{ mb: 1.5, ml: 1.5 }}
-              color="text.secondary"
-              component="div"
-            >
-              Total (per {data?.monthly && "month"}
-              {data?.yearly && "year"})
-            </Typography>
-
-            <Typography sx={{ mb: 1.5, fontSize: "20px", color: "#483EFF", fontWeight: "bold" }} component="div">
-              ${total}
-              {data?.monthly && "/mo"}
-              {data?.yearly && "/yr"}
-            </Typography>
-          </div>
-
           <Stack
             spacing={2}
             direction="row"
-            className="d-flex justify-content-between w-75 mt-5"
+            style={{ paddingInline: "1em", position: "fixed", bottom: "0" }}
+            className="d-flex justify-content-between mt-5 py-4 w-100 bg-white"
           >
             <Button
               variant="text"
@@ -367,7 +220,171 @@ const FourthStep = () => {
             </Button>
           </Stack>
         </Box>
-      </Container>
+      ) : (
+        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
+          <Box
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 1, width: "25ch" },
+            }}
+          >
+            <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
+            <DescriptionText className="w-75">
+              {descriptionText}
+            </DescriptionText>
+            <br />
+            <Card
+              style={{ width: "450px" }}
+              sx={{
+                minHeight: 160,
+                mr: 2,
+                borderRadius: 3,
+                backgroundColor: "#F8F9FF",
+              }}
+            >
+              <CardContent>
+                <Typography
+                  style={{ fontWeight: "bold", fontSize: 18 }}
+                  sx={{ mb: 1.5 }}
+                  component="div"
+                >
+                  {data?.cardSelection?.title.toLowerCase() == "arcade" &&
+                    "Arcade"}
+                  {data?.cardSelection?.title.toLowerCase() == "advanced" &&
+                    "Advanced"}
+                  {data?.cardSelection?.title.toLowerCase() == "pro" && "Pro"}{" "}
+                  {data?.monthly && "(Monthly)"}
+                  {data?.yearly && "(Yearly)"}
+                </Typography>
+
+                <div className="d-flex justify-content-between align-items-baseline">
+                  <Link to="/select-plan" className="change-link">
+                    <Typography sx={{ mb: 1.5 }} component="div">
+                      Change
+                    </Typography>
+                  </Link>
+                  <Typography
+                    sx={{ mb: 1.5 }}
+                    className="price-value"
+                    component="div"
+                  >
+                    $
+                    {data?.cardSelection?.title.toLowerCase() == "arcade" &&
+                      data?.cardSelection?.price}
+                    {data?.cardSelection?.title.toLowerCase() == "advanced" &&
+                      data?.cardSelection?.price}
+                    {data?.cardSelection?.title.toLowerCase() == "pro" &&
+                      data?.cardSelection?.price}
+                    {data?.monthly && "/mo"}
+                    {data?.yearly && "/yr"}
+                  </Typography>
+                </div>
+
+                <hr />
+                {data?.onlineservice && (
+                  <div className="d-flex justify-content-between align-items-baseline">
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                      {"Online Service"}
+                    </Typography>
+                    <Typography
+                      sx={{ mb: 1.5, fontSize: "20px" }}
+                      color="text.secondary"
+                      component="div"
+                    >
+                      +${data?.onlineservicePrice}
+                      {data?.monthly && "/mo"}
+                      {data?.yearly && "/yr"}
+                    </Typography>
+                  </div>
+                )}
+
+                {data?.largestorage && (
+                  <div className="d-flex justify-content-between align-items-baseline">
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                      {"Large Storage"}
+                    </Typography>
+                    <Typography
+                      sx={{ mb: 1.5, fontSize: "20px" }}
+                      color="text.secondary"
+                      component="div"
+                    >
+                      +${data?.largestoragePrice}
+                      {data?.monthly && "/mo"}
+                      {data?.yearly && "/yr"}
+                    </Typography>
+                  </div>
+                )}
+
+                {data?.customizableprofile && (
+                  <div className="d-flex justify-content-between align-items-baseline">
+                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                      {"Customizable Profile"}
+                    </Typography>
+                    <Typography
+                      sx={{ mb: 1.5, fontSize: "20px" }}
+                      color="text.secondary"
+                      component="div"
+                    >
+                      +${data?.customizableprofilePrice}
+                      {data?.monthly && "/mo"}
+                      {data?.yearly && "/yr"}
+                    </Typography>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+            <br />
+            <div
+              className="d-flex justify-content-between align-items-baseline"
+              style={{ width: "450px" }}
+            >
+              <Typography
+                sx={{ mb: 1.5, ml: 1.5 }}
+                color="text.secondary"
+                component="div"
+              >
+                Total (per {data?.monthly && "month"}
+                {data?.yearly && "year"})
+              </Typography>
+
+              <Typography
+                sx={{
+                  mb: 1.5,
+                  fontSize: "20px",
+                  color: "#483EFF",
+                  fontWeight: "bold",
+                }}
+                component="div"
+              >
+                ${total}
+                {data?.monthly && "/mo"}
+                {data?.yearly && "/yr"}
+              </Typography>
+            </div>
+
+            <Stack
+              spacing={2}
+              direction="row"
+              style={{ width: "450px" }}
+              className="d-flex justify-content-between mt-5"
+            >
+              <Button
+                variant="text"
+                className="btn-back-step"
+                onClick={() => handleGoBack()}
+              >
+                Go Back
+              </Button>
+              <Button
+                variant="contained"
+                className="btn-next-step"
+                onClick={() => handleNextStep()}
+              >
+                Confirm
+              </Button>
+            </Stack>
+          </Box>
+        </Container>
       )}
     </ContentMultiStep>
   );

@@ -234,7 +234,7 @@ const ThirdStep = () => {
                   </div>
                 </FormGroup>
               </FormControl>
-              <FormLabel>
+              <FormLabel className="label-price-checkbox">
                 +$
                 {`${secondData.monthly ? 1 : ""}${secondData.yearly ? 10 : ""}`}
                 {secondData.monthly ? "/mo" : ""}
@@ -271,7 +271,7 @@ const ThirdStep = () => {
                   </div>
                 </FormGroup>
               </FormControl>
-              <FormLabel>
+              <FormLabel className="label-price-checkbox">
                 +$
                 {`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`}
                 {secondData.monthly ? "/mo" : ""}
@@ -308,7 +308,7 @@ const ThirdStep = () => {
                   </div>
                 </FormGroup>
               </FormControl>
-              <FormLabel>
+              <FormLabel className="label-price-checkbox">
                 +$
                 {`${secondData.monthly ? 2 : ""}${secondData.yearly ? 20 : ""}`}
                 {secondData.monthly ? "/mo" : ""}

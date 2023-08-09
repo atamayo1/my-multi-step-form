@@ -21,7 +21,7 @@ export const ContentMultiStep = styled.div`
 `;
 
 export const PrincipalTitle = styled.h2`
-  color: black;
+  color: #022959;
   font-weight: bold;
 `;
 
@@ -30,12 +30,15 @@ export const DescriptionText = styled.p`
 `;
 
 export const ContentIcon = styled.div`
-  width: 80px;
-  height: 80px;
+  width: ${({ isSmallScreen }) => isSmallScreen ? "56px" : "80px"};
+  height: ${({ isSmallScreen }) => isSmallScreen ? "56px" : "80px"};
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: #e96170;
   border-radius: 99px;
+  img{
+    width: 100%;
+    height: 100%;
+  }
 `;
