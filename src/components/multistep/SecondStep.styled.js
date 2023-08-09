@@ -39,6 +39,10 @@ export const ContentMultiStep = styled.div`
     width: 450px;
     height: 48px;
     border-radius: 8px;
+    .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track, .css-1yjjitx-MuiSwitch-track {
+      background-color: #022959;
+      opacity: 1;
+    }
   }
 `;
 

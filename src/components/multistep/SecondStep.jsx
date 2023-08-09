@@ -28,13 +28,13 @@ const SecondStep = () => {
   const handleGoBack = () => {
     navigate("/");
   };
-  const handleNextStep = async () => {
+  const handleNextStep = async (isDisabled) => {
     let newData = {
       monthly: !checkMonthlyOrYearly,
       yearly: checkMonthlyOrYearly,
       cardSelection: cardSelection ? cardSelection : false,
     };
-    if (newData) {
+    if (newData && !isDisabled) {
       localStorage.setItem("second-step", JSON.stringify(newData));
       navigate("/add-ons");
     }
@@ -155,8 +155,9 @@ const SecondStep = () => {
                 Monthly
               </span>
               <Switch
+                className="switch-selection"
                 defaultChecked={false}
-                color="default"
+                style={{color: "white"}}
                 onChange={() => handleMonthlyOrYearly()}
               />
               <span
@@ -186,8 +187,7 @@ const SecondStep = () => {
               <Button
                 variant="contained"
                 className="btn-next-step"
-                disabled={cardSelection?.title ? false : true}
-                onClick={() => handleNextStep()}
+                onClick={() => handleNextStep(cardSelection?.title ? false : true)}
               >
                 Next Step
               </Button>
