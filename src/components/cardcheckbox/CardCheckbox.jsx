@@ -29,11 +29,12 @@ const CardCheckbox = ({
   };
 
   return (
-    <ContentCard>
+    <ContentCard isSmallScreen={isSmallScreen}>
       {isSmallScreen ? (
         <Card
           key={id}
           onClick={() => handleCardClick({ id, title, price })}
+          isSmallScreen={isSmallScreen}
           className={`card ${
             isSelected &&
             cardSelection?.title?.toLowerCase() == title.toLowerCase()

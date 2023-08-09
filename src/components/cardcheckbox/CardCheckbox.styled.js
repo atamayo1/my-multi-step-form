@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
 export const ContentCard = styled.div`
+  max-width: 39.33%;
   .card.selected {
     border: 1px solid #483eff;
     background-color: rgba(72, 62, 255, 0.1);
@@ -9,6 +10,7 @@ export const ContentCard = styled.div`
     border: 1px solid #d6d9e6;
     background-color: transparent;
     margin-bottom: 1em;
+    margin-left: ${({isSmallScreen}) => isSmallScreen ? "inherit" : "2em"};;
   }
   .card:hover {
     border: 1px solid #483eff;

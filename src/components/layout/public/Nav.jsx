@@ -60,8 +60,8 @@ const Nav = () => {
     <ContentNav>
       {isSmallScreen ? (
         // Content for small screens (width less than or equal to 600px)
-        <AppBar component="nav">
-        <Toolbar className="toolbar-top-menu" style={{backgroundImage: `url(${BackgroundAside})`}}>
+        <AppBar component="nav" className="app-bar-nav" style={{backgroundImage: `url(${BackgroundAside})`}}>
+        <Toolbar>
           <Box  className="d-flex justify-content-around p-4 w-100">
           {listItems.map((item) => {
             return (

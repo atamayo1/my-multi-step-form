@@ -44,9 +44,9 @@ export const ContentMultiStep = styled.div`
 `;
 
 export const PrincipalTitle = styled.p`
-  color: black;
-  font-size: 24px;
+  color: #022959;
   font-weight: bold;
+  font-size: 32px;
 `;
 
 export const DescriptionText = styled.p`

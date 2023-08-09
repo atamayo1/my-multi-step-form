@@ -1,9 +1,16 @@
 import { styled } from "styled-components";
 
 export const ContentNav = styled.div`
-  .toolbar-top-menu {
+  .app-bar-nav {
     background-position: bottom;
     background-size: cover;
+    border-radius: 0px 0px 20px 20px;
+    height: 172px;
+    z-index: 0;
+  }
+  .toolbar-top-menu {
+    height: 12vh;
+    background-color: transparent;
   }
 `;
 
@@ -28,6 +35,7 @@ export const ContentItemNumber = styled.div`
   width: 2em;
   height: 2em;
   margin: 0 2em;
+  font-weight: ${({ selected }) => (selected ? "bold" : "inherit")};
   color: ${({ selected }) => (selected ? "#022959" : "#fff")};
   background-color: ${({ selected }) => (selected ? "#BEE2FD" : "")};
 `;

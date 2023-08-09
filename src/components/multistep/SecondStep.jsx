@@ -118,19 +118,16 @@ const SecondStep = () => {
           </Stack>
         </Box>
       ) : (
-        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
+        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4, width: "450px" }}>
           <Box
             component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
           >
             <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
             <DescriptionText className="w-75">
               {descriptionText}
             </DescriptionText>
 
-            <div className="d-flex justify-content-around w-50 mt-5">
+            <div style={{maxWidth: "450px"}} className="d-flex justify-content-center mt-5">
               {cardData.map((card) => (
                 <CardCheckbox
                   key={card.id}
@@ -145,12 +142,12 @@ const SecondStep = () => {
             </div>
 
             <div
-              style={{ fontWeight: "bold" }}
-              className="d-flex align-items-baseline justify-content-center w-50 mt-5"
+              className="mt-5 content-switch"
             >
               <span
                 style={{
                   fontSize: "14px",
+                  fontWeight: "bold",
                   color: checkMonthlyOrYearly ? "#9699AA" : "#022959",
                 }}
               >
@@ -164,6 +161,7 @@ const SecondStep = () => {
               <span
                 style={{
                   fontSize: "14px",
+                  fontWeight: "bold",
                   color: checkMonthlyOrYearly ? "#022959" : "#9699AA",
                 }}
               >
@@ -174,7 +172,8 @@ const SecondStep = () => {
             <Stack
               spacing={2}
               direction="row"
-              className="d-flex justify-content-between w-75 mt-5"
+              style={{width: "450px"}}
+              className="d-flex justify-content-between mt-5"
             >
               <Button
                 variant="text"

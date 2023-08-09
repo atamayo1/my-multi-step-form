@@ -37,19 +37,82 @@ export const ContentCheckbox = styled.div`
   border-radius: 8px;
   border: 1px solid #9699AA;
   color: #9699AA;
-  .css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
+  .form-group-checkbox.small-screen{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 55vw;
+  }
+  .content-checkbox.small-screen{
+    display: flex;
+    width: 25%;
+  }
+  .content-labels-checkbox.small-screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    width: 75%;
+  }
+  .label-checkbox.small-screen{
+    color: #022959;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .label-checkbox.small-screen.Mui-focused{
     color: #022959;
     font-weight: bold;
   }
-  .css-u4tvz2-MuiFormLabel-root {
-    color: #9699aa;
+  .label-description-checkbox.small-screen{
+    font-size: 12px;
+    color: #9699AA;
   }
-  .css-u4tvz2-MuiFormLabel-root.Mui-focused {
-    color: #9699aa !important;
+  .label-description-checkbox.small-screen.Mui-focused{
+    color: #9699AA;
   }
-  label {
-    color: #483eff !important;
-    font-size: 20px;
+  .label-price-checkbox.small-screen{
+    color: #483EFF;
+    font-size: 12px;
+  }
+  // 
+  .form-group-checkbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 25vw;
+  }
+  .content-checkbox{
+    display: flex;
+    width: 25%;
+  }
+  .content-labels-checkbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    width: 75%;
+  }
+  .label-checkbox{
+    color: #022959;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .label-checkbox.Mui-focused{
+    color: #022959;
+    font-weight: bold;
+  }
+  .label-description-checkbox{
+    font-size: 15px;
+    color: #9699AA;
+  }
+  .label-description-checkbox.Mui-focused{
+    color: #9699AA;
+  }
+  .label-price-checkbox{
+    color: #483EFF;
+    font-size: 12px;
   }
   &.selected {
     border: 1px solid #483eff;
@@ -62,9 +125,9 @@ export const ContentCheckbox = styled.div`
 `;
 
 export const PrincipalTitle = styled.p`
-  color: black;
+  color: #022959;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 32px;
 `;
 
 export const DescriptionText = styled.p`

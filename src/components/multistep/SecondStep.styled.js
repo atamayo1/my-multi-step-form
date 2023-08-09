@@ -23,7 +23,7 @@ export const ContentMultiStep = styled.div`
     height: auto;
     display: flex;
   }
-  .form-card{
+  .form-card {
     width: 95%;
     border-radius: 10px;
     padding: 2em;
@@ -31,12 +31,21 @@ export const ContentMultiStep = styled.div`
     margin-top: 2.5em;
     margin-bottom: 7em;
   }
+  .content-switch {
+    background-color: #f8f9ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 48px;
+    border-radius: 8px;
+  }
 `;
 
 export const PrincipalTitle = styled.p`
-  color: black;
+  color: #022959;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 32px;
 `;
 
 export const DescriptionText = styled.p`

@@ -52,48 +52,69 @@ const FirstStep = () => {
           <Card className="form-card">
             <PrincipalTitle>{principalTitle}</PrincipalTitle>
             <DescriptionText>{descriptionText}</DescriptionText>
-            <TextField
-              className="w-100 mb-3"
-              id="outlined-basic-name"
-              label="Name"
-              name="name"
-              variant="outlined"
-              placeholder="e.g. Stephen King"
-              onChange={changed}
-              error={!!errors.name}
-              helperText={errors.name}
-            />
-            <TextField
-              className="w-100 mb-3"
-              id="outlined-basic-email"
-              label="Email Address"
-              name="email"
-              variant="outlined"
-              type={"email"}
-              placeholder="e.g. stephenking@lorem.com"
-              onChange={changed}
-              error={!!errors.email}
-              helperText={errors.email}
-            />
-            <TextField
-              className="w-100 mb-3"
-              id="outlined-basic-phone"
-              label="Phone Number"
-              name="phone"
-              variant="outlined"
-              type={"number"}
-              placeholder="e.g. +1 234 567 890"
-              onChange={changed}
-              error={!!errors.phone}
-              helperText={errors.phone}
-            />
+            <div
+              className="d-flex w-100 mb-3"
+              style={{ flexDirection: "column", color: "#022959" }}
+            >
+              <label htmlFor="outlined-basic-name">Name</label>
+              <TextField
+                style={{ color: "#9699AA", fontWeight: "bold" }}
+                className="mt-1"
+                id="outlined-basic-name"
+                name="name"
+                variant="outlined"
+                placeholder="e.g. Stephen King"
+                onChange={changed}
+                error={!!errors.name}
+                helperText={errors.name}
+              />
+            </div>
+            <div
+              className="d-flex w-100 mb-3"
+              style={{ flexDirection: "column", color: "#022959" }}
+            >
+              <label htmlFor="outlined-basic-email">Email Address</label>
+              <TextField
+                style={{ color: "#9699AA", fontWeight: "bold" }}
+                className="mt-1"
+                id="outlined-basic-email"
+                label="Email Address"
+                name="email"
+                variant="outlined"
+                type={"email"}
+                placeholder="e.g. stephenking@lorem.com"
+                onChange={changed}
+                error={!!errors.email}
+                helperText={errors.email}
+              />
+            </div>
+
+            <div
+              className="d-flex w-100 mb-3"
+              style={{ flexDirection: "column", color: "#022959" }}
+            >
+              <label htmlFor="outlined-basic-phone">Phone Number</label>
+              <TextField
+                style={{ color: "#9699AA", fontWeight: "bold" }}
+                className="mt-1"
+                id="outlined-basic-phone"
+                label="Phone Number"
+                name="phone"
+                variant="outlined"
+                type={"number"}
+                placeholder="e.g. +1 234 567 890"
+                onChange={changed}
+                error={!!errors.phone}
+                helperText={errors.phone}
+              />
+            </div>
           </Card>
 
           <Stack
             spacing={2}
             direction="row"
             style={{ paddingRight: "1em", position: "fixed", bottom: "0" }}
-            className="d-flex justify-content-end mt-5 py-4 w-100 bg-white"
+            className="d-flex justify-content-end mt-5 py-4 w-100"
           >
             <Button type="submit" variant="contained" className="btn-next-step">
               Next Step
@@ -113,45 +134,67 @@ const FirstStep = () => {
             <DescriptionText className="w-75">
               {descriptionText}
             </DescriptionText>
-            <TextField
-              className="w-75"
-              id="outlined-basic-name"
-              label="Name"
-              name="name"
-              variant="outlined"
-              placeholder="e.g. Stephen King"
-              onChange={changed}
-              error={!!errors.name}
-              helperText={errors.name}
-            />
-            <TextField
-              className="w-75"
-              id="outlined-basic-email"
-              label="Email Address"
-              name="email"
-              variant="outlined"
-              type={"email"}
-              placeholder="e.g. stephenking@lorem.com"
-              onChange={changed}
-              error={!!errors.email}
-              helperText={errors.email}
-            />
-            <TextField
-              className="w-75"
-              id="outlined-basic-phone"
-              label="Phone Number"
-              name="phone"
-              variant="outlined"
-              type={"number"}
-              placeholder="e.g. +1 234 567 890"
-              onChange={changed}
-              error={!!errors.phone}
-              helperText={errors.phone}
-            />
+            <div
+              className="d-flex w-75"
+              style={{ flexDirection: "column", color: "#022959" }}
+            >
+              <label htmlFor="outlined-basic-name">Name</label>
+              <TextField
+                style={{ color: "#9699AA", fontWeight: "bold", width: "450px" }}
+                className="mt-1"
+                id="outlined-basic-name"
+                name="name"
+                variant="outlined"
+                placeholder="e.g. Stephen King"
+                onChange={changed}
+                error={!!errors.name}
+                helperText={errors.name}
+              />
+            </div>
+            <div
+              className="d-flex w-75"
+              style={{ flexDirection: "column", color: "#022959" }}
+            >
+              <label htmlFor="outlined-basic-email">Email Address</label>
+              <TextField
+                style={{ color: "#9699AA", fontWeight: "bold", width: "450px" }}
+                className="mt-1"
+                id="outlined-basic-email"
+                label="Email Address"
+                name="email"
+                variant="outlined"
+                type={"email"}
+                placeholder="e.g. stephenking@lorem.com"
+                onChange={changed}
+                error={!!errors.email}
+                helperText={errors.email}
+              />
+            </div>
+
+            <div
+              className="d-flex w-75"
+              style={{ flexDirection: "column", color: "#022959" }}
+            >
+              <label htmlFor="outlined-basic-phone">Phone Number</label>
+              <TextField
+                style={{ color: "#9699AA", fontWeight: "bold", width: "450px" }}
+                className="mt-1"
+                id="outlined-basic-phone"
+                label="Phone Number"
+                name="phone"
+                variant="outlined"
+                type={"number"}
+                placeholder="e.g. +1 234 567 890"
+                onChange={changed}
+                error={!!errors.phone}
+                helperText={errors.phone}
+              />
+            </div>
             <Stack
               spacing={2}
               direction="row"
-              className="d-flex justify-content-end w-75 mt-5"
+              style={{ width: "450px" }}
+              className="d-flex justify-content-end mt-5"
             >
               <Button
                 type="submit"
