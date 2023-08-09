@@ -158,7 +158,6 @@ const FirstStep = () => {
                 style={{ color: "#9699AA", fontWeight: "bold", width: "450px" }}
                 className="mt-1"
                 id="outlined-basic-email"
-                label="Email Address"
                 name="email"
                 variant="outlined"
                 type={"email"}
@@ -178,7 +177,6 @@ const FirstStep = () => {
                 style={{ color: "#9699AA", fontWeight: "bold", width: "450px" }}
                 className="mt-1"
                 id="outlined-basic-phone"
-                label="Phone Number"
                 name="phone"
                 variant="outlined"
                 type={"number"}
