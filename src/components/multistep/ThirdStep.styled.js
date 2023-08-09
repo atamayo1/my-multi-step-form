@@ -75,7 +75,9 @@ export const ContentCheckbox = styled.div`
     color: #483EFF;
     font-size: 12px;
   }
-  // 
+  .css-zun73v.Mui-checked, .css-zun73v.MuiCheckbox-indeterminate{
+    color: #483EFF;
+  }
   .form-group-checkbox{
     display: flex;
     flex-direction: row;
@@ -86,6 +88,9 @@ export const ContentCheckbox = styled.div`
   .content-checkbox{
     display: flex;
     width: 25%;
+    .Mui-checked{
+      color: #483EFF;
+    }
   }
   .content-labels-checkbox{
     display: flex;

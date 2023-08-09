@@ -33,7 +33,7 @@ const ThanksPage = () => {
           </Card>
         </Box>
       ) : (
-        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
+        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4, width: "650px" }}>
           <Box
             style={{ width: "450px" }}
             component="form"

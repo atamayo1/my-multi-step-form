@@ -120,21 +120,18 @@ const FirstStep = () => {
           </Stack>
         </Box>
       ) : (
-        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
+        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4, width: "650px" }}>
           <Box
             onSubmit={handleNextStep}
             component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
           >
-            <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
-            <DescriptionText className="w-75">
+            <PrincipalTitle className="w-100">{principalTitle}</PrincipalTitle>
+            <DescriptionText className="w-100">
               {descriptionText}
             </DescriptionText>
             <div
-              className="d-flex w-75"
-              style={{ flexDirection: "column", color: "#022959" }}
+              className="d-flex mb-3"
+              style={{ flexDirection: "column", color: "#022959", width: "450px" }}
             >
               <label htmlFor="outlined-basic-name">Name</label>
               <TextField
@@ -150,8 +147,8 @@ const FirstStep = () => {
               />
             </div>
             <div
-              className="d-flex w-75"
-              style={{ flexDirection: "column", color: "#022959" }}
+              className="d-flex mb-3"
+              style={{ flexDirection: "column", color: "#022959", width: "450px" }}
             >
               <label htmlFor="outlined-basic-email">Email Address</label>
               <TextField
@@ -169,8 +166,8 @@ const FirstStep = () => {
             </div>
 
             <div
-              className="d-flex w-75"
-              style={{ flexDirection: "column", color: "#022959" }}
+              className="d-flex mb-3"
+              style={{ flexDirection: "column", color: "#022959", width: "450px" }}
             >
               <label htmlFor="outlined-basic-phone">Phone Number</label>
               <TextField

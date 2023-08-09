@@ -118,16 +118,16 @@ const SecondStep = () => {
           </Stack>
         </Box>
       ) : (
-        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4, width: "450px" }}>
+        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4, width: "650px" }}>
           <Box
             component="form"
           >
-            <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
-            <DescriptionText className="w-75">
+            <PrincipalTitle className="w-100">{principalTitle}</PrincipalTitle>
+            <DescriptionText className="w-100">
               {descriptionText}
             </DescriptionText>
 
-            <div style={{maxWidth: "450px"}} className="d-flex justify-content-center mt-5">
+            <div style={{maxWidth: "390px"}} className="d-flex justify-content-center mt-5">
               {cardData.map((card) => (
                 <CardCheckbox
                   key={card.id}
@@ -139,6 +139,7 @@ const SecondStep = () => {
                   setCardSelection={setCardSelection}
                 />
               ))}
+           
             </div>
 
             <div

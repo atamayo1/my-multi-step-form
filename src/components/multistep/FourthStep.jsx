@@ -221,15 +221,12 @@ const FourthStep = () => {
           </Stack>
         </Box>
       ) : (
-        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
+        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4, width: "650px" }}>
           <Box
             component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
           >
-            <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
-            <DescriptionText className="w-75">
+            <PrincipalTitle className="w-100">{principalTitle}</PrincipalTitle>
+            <DescriptionText className="w-100">
               {descriptionText}
             </DescriptionText>
             <br />

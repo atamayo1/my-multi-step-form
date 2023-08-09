@@ -192,22 +192,19 @@ const ThirdStep = () => {
           </Stack>
         </Box>
       ) : (
-        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4 }}>
+        <Container maxWidth="lg" sx={{ ml: 15, mt: 4, mb: 4, width: "650px" }}>
           <Box
             onSubmit={handleNextStep}
             component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
           >
-            <PrincipalTitle className="w-75">{principalTitle}</PrincipalTitle>
-            <DescriptionText className="w-75">
+            <PrincipalTitle className="w-100">{principalTitle}</PrincipalTitle>
+            <DescriptionText className="w-100">
               {descriptionText}
             </DescriptionText>
             <br />
             <ContentCheckbox
               style={{ width: "450px" }}
-              className={`d-flex justify-content-between align-items-baseline ${
+              className={`d-flex justify-content-between align-items-baseline mb-3 ${
                 form?.onlineservice && "selected"
               }`}
             >
@@ -244,7 +241,7 @@ const ThirdStep = () => {
 
             <ContentCheckbox
               style={{ width: "450px" }}
-              className={`d-flex justify-content-between align-items-baseline ${
+              className={`d-flex justify-content-between align-items-baseline mb-3 ${
                 form?.largestorage && "selected"
               }`}
             >
@@ -281,7 +278,7 @@ const ThirdStep = () => {
 
             <ContentCheckbox
               style={{ width: "450px" }}
-              className={`d-flex justify-content-between align-items-baseline ${
+              className={`d-flex justify-content-between align-items-baseline mb-3 ${
                 form?.customizableprofile && "selected"
               }`}
             >
