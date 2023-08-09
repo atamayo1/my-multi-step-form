@@ -110,8 +110,7 @@ const SecondStep = () => {
             <Button
               variant="contained"
               className="btn-next-step"
-              disabled={cardSelection?.title ? false : true}
-              onClick={() => handleNextStep()}
+              onClick={() => handleNextStep(cardSelection?.title ? false : true)}
             >
               Next Step
             </Button>
